@@ -94,7 +94,7 @@ public class EfficientWordMarkov extends BaseWordMarkov{
 	 * 
 	 * @param WordGram kgram to be searched for in myMap
 	 * @return ArrayList of strings (for the given key) that was created when setTraining is called.
-	 * Throws an exception if key is not in myMap
+	 * @throws NoSuchElementException if kgram is not in myMap
 	 **/
 	public ArrayList<String> getFollows(WordGram kgram){
 		if(myMap.containsKey(kgram))

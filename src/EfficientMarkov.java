@@ -52,10 +52,10 @@ public class EfficientMarkov extends BaseMarkov{
 		{
 			String toAdd = myText.substring(i, i+myOrder);
 			
-			if(i+myOrder-1 != myText.length()-1)
-			{
-				charAdd = myText.charAt(i+myOrder);
-			}
+			//if(i+myOrder-1 != myText.length()-1)
+			//{
+				//charAdd = myText.charAt(i+myOrder);
+			//}
 		
 			if(!(myMap.containsKey(toAdd)))
     			{
@@ -68,7 +68,7 @@ public class EfficientMarkov extends BaseMarkov{
 					
 				else
 				{
-					forMapNew.add(String.valueOf(charAdd));
+					forMapNew.add(String.valueOf(myText.charAt(i+myOrder)));
 				}
 				
 				myMap.put(toAdd, forMapNew);
@@ -85,7 +85,7 @@ public class EfficientMarkov extends BaseMarkov{
 				
 				else
 				{
-					forMapExists.add(String.valueOf(charAdd));
+					forMapExists.add(String.valueOf(myText.charAt(i+myOrder)));
 				}
 			
 				myMap.put(toAdd, forMapExists);
@@ -99,7 +99,7 @@ public class EfficientMarkov extends BaseMarkov{
 	 * 
 	 * @param String key to be searched for in myMap
 	 * @return ArrayList of single-character strings (for the given key) that was created when setTraining is called.
-	 * Throws an exception if key is not in myMap
+	 * @throws NoSuchElementException if key is not in myMap
 	 **/
 	public ArrayList<String> getFollows(String key){
 		if(myMap.containsKey(key))
